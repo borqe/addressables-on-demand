@@ -11,21 +11,6 @@ public class Spawner : MonoBehaviour
 
     public List<GameObject> loadedObjects = new List<GameObject>();
 
-    private void Start() {
-        NetworkTransport.Init();
-
-        ConnectionConfig config = new ConnectionConfig();
-        HostTopology topology = new HostTopology(config, 10);
-
-        int hostId = NetworkTransport.AddHost(topology, 50655);
-
-        byte error;
-
-        var connectionId = NetworkTransport.Connect(hostId, "192.168.1.64", 50655, 0, out error);
-
-        Debug.Log(connectionId);
-    }
-
     public void Spawn()
     {
         Debug.Log(asset);
