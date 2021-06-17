@@ -17,6 +17,20 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 69b9343453f3a054bbbef088ae932e05
   m_SerializeEntries:
+  - m_GUID: 032940c135d54ca44bc8fba1a0677fa2
+    m_Address: Assets/Addresssables/Materials/Blue.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 0cb140305a25f274abebb28dfd4ddd11
+    m_Address: Assets/Addresssables/Materials/ChangeTest.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 5e3ab8a1ab8ce6241a8b1f2458f8dda4
     m_Address: Assets/Addresssables/Cube.prefab
     m_ReadOnly: 0
@@ -27,7 +41,8 @@ MonoBehaviour:
   - m_GUID: 7f00a9a2214ef6247a4bfe43079ec145
     m_Address: Assets/Addresssables/Materials/Red.mat
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
