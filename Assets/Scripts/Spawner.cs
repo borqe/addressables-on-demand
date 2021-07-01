@@ -1,37 +1,43 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class Spawner : MonoBehaviour
 {
-    public AssetReference asset;
+    public List<AssetReference> assets;
     public List<GameObject> loadedObjects = new List<GameObject>();
 
-    // Loads assets using the Addressable package.
     public void Spawn()
     {
-        // Uses a callback as the function is asynchronous.
-        Addressables.LoadAssetAsync<GameObject>(asset).Completed += OnLoaded;
+        foreach (var asset in assets)
+        {
+            Addressables.InstantiateAsync(asset).Completed += OnInstantiation;
+        }
+    }
+
+    private void OnInstantiation(AsyncOperationHandle<GameObject> obj)
+    {
+        if(obj.Status == AsyncOperationStatus.Succeeded)
+        {
+            loadedObjects.Add(obj.Result);
+        }
+        else
+        {
+            Debug.LogError("Instantiation failed!");
+        }
     }
 
     public void Clear()
     {
-        foreach (var obj in loadedObjects)
+        foreach (var loadedObject in loadedObjects)
         {
-            Destroy(obj.gameObject);
+            Addressables.ReleaseInstance(loadedObject);
         }
 
         loadedObjects.Clear();
-    }
-
-    private void OnLoaded(AsyncOperationHandle<GameObject> obj)
-    {
-        if (obj.Status == AsyncOperationStatus.Succeeded)
-        {
-            // EZ instantiation, like any other GameObject
-            var instantiatedObject = Instantiate(obj.Result);
-            loadedObjects.Add(instantiatedObject);
-        }
+        Resources.UnloadUnusedAssets();
+        Caching.ClearCache();
     }
 }

@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
   m_DefaultGroup: 69b9343453f3a054bbbef088ae932e05
+  m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
-  m_DisableCatalogUpdateOnStart: 0
+  m_DisableCatalogUpdateOnStart: 1
   m_UniqueBundleIds: 0
+  m_maxConcurrentWebRequests: 500
+  m_ContiguousBundles: 0
   m_RemoteCatalogBuildPath:
     m_Id: 4f9ba5e1b552cd84eb7ec62361d524e2
   m_RemoteCatalogLoadPath:
@@ -25,6 +28,7 @@ MonoBehaviour:
   m_GroupAssets:
   - {fileID: 11400000, guid: 90167cbdd2907644cb58b81d2a123046, type: 2}
   - {fileID: 11400000, guid: d46616ab2b458fa42a53b8ca39337af7, type: 2}
+  - {fileID: 11400000, guid: 6f1e81525ae537742b9b5098e81846be, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -39,9 +43,9 @@ MonoBehaviour:
       - m_Id: fb008743973e318448970a47ddc2aefa
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
       - m_Id: 5387293d08cf14b4dac700d066e2be5b
-        m_Value: HostedData/[BuildTarget]
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
       - m_Id: 991803eb4c827194688104351ad95710
-        m_Value: http://[PrivateIpAddress]:[HostingServicePort]/[BuildTarget]
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: 4f9ba5e1b552cd84eb7ec62361d524e2
         m_Value: HostedData/[BuildTarget]
       - m_Id: eff5bfb150d406d44822d194523aaf83
@@ -53,9 +57,9 @@ MonoBehaviour:
       - m_Id: fb008743973e318448970a47ddc2aefa
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
       - m_Id: 5387293d08cf14b4dac700d066e2be5b
-        m_Value: HostedData/[BuildTarget]
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
       - m_Id: 991803eb4c827194688104351ad95710
-        m_Value: ftp://root:root@localhost/[BuildTarget]
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: 4f9ba5e1b552cd84eb7ec62361d524e2
         m_Value: HostedData/[BuildTarget]
       - m_Id: eff5bfb150d406d44822d194523aaf83
@@ -81,6 +85,7 @@ MonoBehaviour:
     m_LabelNames:
     - default
     - test
+    - local
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 3b64544ae930da245ada43512004c711, type: 2}
@@ -107,7 +112,7 @@ MonoBehaviour:
           m_Key: HostingServicePort
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.String
-          m_Data: HostedData/StandaloneWindows
+          m_Data: HostedData/StandaloneWindows64;Library/com.unity.addressables/aa/Windows/StandaloneWindows64
           m_Key: ContentRoot
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.Boolean
